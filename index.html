@@ -1828,5 +1828,149 @@ document.getElementById('whatsappFloat').addEventListener('click', function() {
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Exo+2:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Rajdhani:wght@300;400;500;600;700&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <style>
+/* Hide Elfsight branding and adjust height */
+.elfsight-app-fb391ffa-e9a5-47df-8248-2147ec247442 .elfsight-app-branding,
+.elfsight-app-fb391ffa-e9a5-47df-8248-2147ec247442 .elfsight-app-powered-by {
+    display: none !important;
+}
+
+/* Make chat container slightly smaller to hide bottom section */
+.elfsight-app-fb391ffa-e9a5-47df-8248-2147ec247442 .elfsight-app-chat-container {
+    height: 85% !important;
+    max-height: 500px !important;
+}
+
+/* Position the widget properly */
+.elfsight-app-fb391ffa-e9a5-47df-8248-2147ec247442 {
+    position: fixed !important;
+    left: 20px !important;
+    bottom: 100px !important;
+    z-index: 9999 !important;
+    width: 380px !important;
+    height: 600px !important;
+    border-radius: 15px !important;
+    overflow: hidden !important;
+}
+
+/* Neon Blue-Purple Container */
+.cx01-neon-toggle {
+    position: fixed;
+    left: 25px;
+    bottom: 25px;
+    z-index: 10000;
+    cursor: pointer;
+}
+
+/* Neon Blue-Purple Circle Button */
+.cx01-toggle-btn {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background: #000428;
+    border: 3px solid #00ffff;
+    box-shadow: 
+        0 0 15px #00ffff,
+        0 0 25px #ff00ff,
+        inset 0 0 15px #00ffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #00ffff;
+    font-size: 24px;
+    font-weight: bold;
+    text-shadow: 0 0 10px #00ffff;
+    transition: all 0.3s ease;
+    animation: neon-pulse 2s infinite;
+}
+
+/* Neon Blue-Purple Pulsing Animation */
+@keyframes neon-pulse {
+    0%, 100% { 
+        box-shadow: 
+            0 0 15px #00ffff,
+            0 0 25px #ff00ff,
+            inset 0 0 15px #00ffff;
+    }
+    50% { 
+        box-shadow: 
+            0 0 25px #00ffff,
+            0 0 40px #ff00ff,
+            inset 0 0 20px #00ffff;
+    }
+}
+
+/* Hover Effects */
+.cx01-toggle-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 
+        0 0 30px #00ffff,
+        0 0 50px #ff00ff,
+        inset 0 0 25px #00ffff;
+}
+
+/* CX-01 Label */
+.cx01-label {
+    position: absolute;
+    bottom: -25px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #00ffff;
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+    text-shadow: 0 0 5px #00ffff;
+    white-space: nowrap;
+}
+</style>
+
+<!-- Toggle Button -->
+<div class="cx01-neon-toggle" onclick="toggleCX01()">
+    <div class="cx01-toggle-btn">
+        CX
+    </div>
+    <div class="cx01-label">CX-01 ONLINE</div>
+</div>
+
+<!-- Elfsight AI Chatbot -->
+<script src="https://static.elfsight.com/platform/platform.js" data-use-service-core defer></script>
+<div class="elfsight-app-fb391ffa-e9a5-47df-8248-2147ec247442" data-elfsight-app-lazy></div>
+
+<script>
+let cx01Visible = false;
+
+function toggleCX01() {
+    const chatWidget = document.querySelector('.elfsight-app-fb391ffa-e9a5-47df-8248-2147ec247442');
+    
+    if (!chatWidget) {
+        console.log('Elfsight widget not found');
+        return;
+    }
+    
+    if (cx01Visible) {
+        chatWidget.style.opacity = '0';
+        chatWidget.style.pointerEvents = 'none';
+        document.querySelector('.cx01-label').textContent = 'CX-01 ONLINE';
+        document.querySelector('.cx01-toggle-btn').style.background = '#000428';
+    } else {
+        chatWidget.style.opacity = '1';
+        chatWidget.style.pointerEvents = 'auto';
+        document.querySelector('.cx01-label').textContent = 'CX-01 ACTIVE';
+        document.querySelector('.cx01-toggle-btn').style.background = '#001a33';
+    }
+    
+    cx01Visible = !cx01Visible;
+}
+
+// Initialize - hide chat on load
+document.addEventListener('DOMContentLoaded', function() {
+    const chatWidget = document.querySelector('.elfsight-app-fb391ffa-e9a5-47df-8248-2147ec247442');
+    if (chatWidget) {
+        chatWidget.style.opacity = '0';
+        chatWidget.style.pointerEvents = 'none';
+        chatWidget.style.transition = 'opacity 0.3s ease';
+    }
+});
+    </script>
 </body>
 </html>
