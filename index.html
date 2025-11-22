@@ -1893,6 +1893,71 @@ document.getElementById('whatsappFloat').addEventListener('click', function() {
             inset 0 0 15px #00ffff;
     }
     50% { 
+<style>
+/* Hide Elfsight branding and adjust height */
+.elfsight-app-fb391ffa-e9a5-47df-8248-2147ec247442 .elfsight-app-branding,
+.elfsight-app-fb391ffa-e9a5-47df-8248-2147ec247442 .elfsight-app-powered-by {
+    display: none !important;
+}
+
+/* Make chat container slightly smaller to hide bottom section */
+.elfsight-app-fb391ffa-e9a5-47df-8248-2147ec247442 .elfsight-app-chat-container {
+    height: 85% !important;
+    max-height: 500px !important;
+}
+
+/* Position the widget properly */
+.elfsight-app-fb391ffa-e9a5-47df-8248-2147ec247442 {
+    position: fixed !important;
+    left: 20px !important;
+    bottom: 100px !important;
+    z-index: 9999 !important;
+    width: 380px !important;
+    height: 600px !important;
+    border-radius: 15px !important;
+    overflow: hidden !important;
+}
+
+/* Neon Blue-Purple Container */
+.cx01-neon-toggle {
+    position: fixed;
+    left: 25px;
+    bottom: 25px;
+    z-index: 10000;
+    cursor: pointer;
+}
+
+/* Neon Blue-Purple Circle Button */
+.cx01-toggle-btn {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background: #000428;
+    border: 3px solid #00ffff;
+    box-shadow: 
+        0 0 15px #00ffff,
+        0 0 25px #ff00ff,
+        inset 0 0 15px #00ffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #00ffff;
+    font-size: 24px;
+    font-weight: bold;
+    text-shadow: 0 0 10px #00ffff;
+    transition: all 0.3s ease;
+    animation: neon-pulse 2s infinite;
+}
+
+/* Neon Blue-Purple Pulsing Animation */
+@keyframes neon-pulse {
+    0%, 100% { 
+        box-shadow: 
+            0 0 15px #00ffff,
+            0 0 25px #ff00ff,
+            inset 0 0 15px #00ffff;
+    }
+    50% { 
         box-shadow: 
             0 0 25px #00ffff,
             0 0 40px #ff00ff,
@@ -1971,6 +2036,6 @@ document.addEventListener('DOMContentLoaded', function() {
         chatWidget.style.transition = 'opacity 0.3s ease';
     }
 });
-    </script>
+</script>
 </body>
 </html>
